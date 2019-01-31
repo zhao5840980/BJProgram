@@ -47,9 +47,10 @@ export default {
     // border-bottom: 1px solid #cccccc;
     .search-icon {
       font-size: px2rem(32);
-      margin-top: px2rem(46);
+      margin-top: px2rem(48);
     }
     .search-input {
+      height: px2rem(32);
       font-size: px2rem(28);
       // line-height: px2rem(90);
       border: none;
