@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'productNum',
-  props: ['repertory', 'totalnum'],
+  props: ['repertory', 'totalnum', 'productid'],
   data() {
     return {
       number: 1
@@ -25,12 +25,21 @@ export default {
         return (this.number = 1);
       }
       this.number--;
+      this.GetCurrentNum();
     },
     Add() {
       if (this.number >= this.totalnum) {
         return (this.number = this.totalnum);
       }
       this.number++;
+      this.GetCurrentNum();
+    },
+    GetCurrentNum() {
+      let num = {
+        id: this.productid,
+        num: this.number
+      };
+      this.$emit('ChnageProductNum', num);
     }
   }
 };

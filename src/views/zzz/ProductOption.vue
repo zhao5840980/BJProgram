@@ -89,7 +89,9 @@ export default {
     GetCurrtProduct() {
       //将当前的商品存储到vuex中的购物车商品数组中
       this.infolistwrap.productNum = this.number;
+      this.infolistwrap.selected = true;
       this.$store.commit('AddProduct', this.infolistwrap);
+
       // this.AddProduct(this.infolistwrap);
       //跳转购物车页面
       this.$router.push('/home/shoppingcar');

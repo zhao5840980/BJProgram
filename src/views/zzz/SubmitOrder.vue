@@ -13,8 +13,8 @@
         <p class="address-text">头向北京市海淀区西三旗黑去哪路8号 系三系黑泉路宝胜官场c座南宝领地啥样公司</p>
       </div>
     </div>
-    <shopCardMsg class="product-pad">
-      <p slot="r" class="productNum">数量：198</p>
+    <shopCardMsg v-for="(item,index) in shoppingCarList" class="product-pad" :src="item.img_src" :title="item.info_title" :warehouse="house" :price="item.price" :key='index'>
+      <p slot="r" class="productNum">数量：{{item.productNum}}</p>
     </shopCardMsg>
     <Remark></Remark>
     <div class="totalNum">
@@ -31,12 +31,25 @@ import Remark from '../../components/zzz/Remark';
 export default {
   name: 'submitOrder',
   data() {
-    return {};
+    return {
+      shoppingCarList: [],
+      house: '我的仓库'
+    };
   },
   components: {
     TopHead,
     ShopCardMsg,
     Remark
+  },
+  created: function() {
+    this.getShoppingCarList();
+  },
+  methods: {
+    getShoppingCarList() {
+      //获取购物车中的确定好的商品
+      this.shoppingCarList = this.$store.getters.getShoppingCar;
+      console.log(this.shoppingCarList);
+    }
   }
 };
 </script>
